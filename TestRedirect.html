@@ -23,7 +23,8 @@
 						   ,2000);
 				//Try launching the app using URL schemes
 				//window.open(appUrlScheme,"_self");
-				window.location = "spintopia://spintopia.com/app";
+				//window.location = "spintopia://spintopia.com/app";
+				window.open = ("spintopia://spintopia.com/app", "_self");
 			} 
 			else if (androidOS) {
 				//If the app is not installed the script will wait for 2sec and redirect to web.
