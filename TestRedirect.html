@@ -8,7 +8,6 @@
 			//Check if device is iOS or Android
 			var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
 			var androidOS = (navigator.userAgent.match(/(Android)/g) ? true : false );
-			//var appUrlScheme = "xyz_app://";
 
 			if (iOS)
 			{
@@ -22,7 +21,6 @@
 						   }
 						   ,250);
 				//Try launching the app using URL schemes
-				//window.open(appUrlScheme,"_self");
 				//window.location = "spintopia://spintopia.com/app";
 				window.location = "spintopia://?param=3";
 			} 
@@ -37,7 +35,6 @@
 						   }
 						   ,2000);
 				//Try launching the app using URL schemes
-				//window.open(appUrlScheme,"_self");
 				window.location.replace("spintopia://spintopia.com/app");
 			}
 			else {
