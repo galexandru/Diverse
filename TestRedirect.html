@@ -18,15 +18,15 @@
 						   function(){
 							   if (new Date() - loadedAt < 4000){
 							   //alert("NO APP");
-									window.open(iOSAppStoreFailLink);
+									window.location = iOSAppStoreFailLink;
 							   }
 						   }
 						   ,2000);
 				//Try launching the app using URL schemes
 				//window.open(appUrlScheme,"_self");
 				//window.location = "spintopia://spintopia.com/app";
-				//window.open ("spintopia://?param=3");
-				window.open(iOSAppStoreFailLink);
+				window.location = "spintopia://?param=3";
+				window.location = iOSAppStoreFailLink;
 			} 
 			else if (androidOS) {
 				//If the app is not installed the script will wait for 2sec and redirect to web.
