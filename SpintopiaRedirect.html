@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<script type="text/javascript">
+
+			var iOSAppStoreFailLink = "https://itunes.apple.com/us/app/spintopia-free-3d-slots-vegas/id849577904";
+			var AndroidAppStoreFailLink = "https://play.google.com/store/apps/details?id=com.openwager.spintopia";
+
+			//Check if device is iOS or Android
+			var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+			var androidOS = (navigator.userAgent.match(/(Android)/g) ? true : false );
+
+			if (iOS)
+			{
+				//If the app is not installed the script will wait for 2sec and redirect to web.
+				var loadedAt = new Date();
+				setTimeout(
+						   function(){
+							   if (new Date() - loadedAt < 1000){
+									window.location = iOSAppStoreFailLink;
+							   }
+						   }
+						   ,250);
+				//Try launching the app using URL schemes
+				//window.location = "spintopia://spintopia.com/app";
+				window.location = "spintopia://?param=3";
+			} 
+			else if (androidOS) {
+				//If the app is not installed the script will wait for 2sec and redirect to web.
+				var loadedAt = +new Date;
+				setTimeout(
+						   function(){
+							   if (+new Date - loadedAt < 3000){
+									window.location = AndroidAppStoreFailLink;
+							   }
+						   }
+						   ,2000);
+				//Try launching the app using URL schemes
+				window.location.replace("spintopia://spintopia.com/app");
+			}
+			else {
+				//Launch the website
+				window.location ="http://apps.facebook.com/spintopia";
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
