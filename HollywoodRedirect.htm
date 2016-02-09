@@ -3,7 +3,7 @@
 		<script type="text/javascript">
 
 			function preventPopup() {
-				clearTimeout(500);
+				clearTimeout(200);
 				timeout = null;
 				window.removeEventListener('pagehide', preventPopup);
 			}
@@ -19,7 +19,7 @@
 
 				timeout = setTimeout(function() {
 						document.location = iOSAppStoreFailLink;
-				}, 250);
+				}, 500);
 				
 			}
 
