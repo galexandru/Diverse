@@ -6,7 +6,9 @@
 			function preventPopup() {
 				clearTimeout(loadStore);
 				loadStore = null;
-				window.removeEventListener('pagehide', preventPopup);
+				window.removeEventListener('onerror', preventPopup);
+				window.removeEventListener('onabort', preventPopup);
+				window.removeEventListener('onpagehide', preventPopup);
 				
 				window.location = iOSAppStoreFailLink;
 			}
@@ -30,7 +32,11 @@
 						    }
 						    ,250);
 				//Try launching the app using URL schemes
-				window.addEventListener('pagehide', preventPopup);
+				window.addEventListener('onerror', preventPopup);
+				window.addEventListener('onabort', preventPopup);
+				window.addEventListener('onpagehide', preventPopup);			
+				
+				
 				window.location = "hollywood://?param=3"; // this will print a warning message on IOS
 			} 
 			else if (androidOS) {
