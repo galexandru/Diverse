@@ -1,51 +1,32 @@
 <html>
 	<head>
 		<script type="text/javascript">
-
+	
+			function preventPopup() {
+				window.removeEventListener('pagehide', preventPopup);
+			}
+						
 			var iOSAppStoreFailLink = "https://itunes.apple.com/us/app/hollywood-slots-vegas-style/id1061703974?ls=1&mt=8";
 			var AndroidAppStoreFailLink = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
 			
-			
-			function preventPopup() {
-				clearTimeout(200);
-				timeout = null;
-				window.removeEventListener('pagehide', preventPopup);
-			}
-			
-			function openApp() {    
-			
-				$('<iframe />')
-				.attr('src', "hollywood://?param=3")
-				.attr('style', 'display:none;')
-				.appendTo('body');
-
-				timeout = setTimeout(function() {
-						document.location = "https://itunes.apple.com/us/app/hollywood-slots-vegas-style/id1061703974?ls=1&mt=8";
-				}, 500);
-				
-				window.addEventListener('pagehide', preventPopup);
-			}	
-			
-
 			//Check if device is iOS or Android
 			var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
 			var androidOS = (navigator.userAgent.match(/(Android)/g) ? true : false );
 
 			if (iOS)
-			{				    
-				openApp();
+			{				    				
 				//If the app is not installed the script will wait for 0.25 sec and redirect to web.
-				// var loadedAt = new Date();
-				// setTimeout(
-						   // function(){
-							   // if (new Date() - loadedAt < 1000){
-									// window.location = iOSAppStoreFailLink;
-							   // }
-						   // }
-						   // ,250);
+				var loadedAt = new Date();
+				setTimeout(
+						    function(){
+							    if (new Date() - loadedAt < 1000){
+									 window.location = iOSAppStoreFailLink;
+							    }
+						    }
+						    ,250);
 				//Try launching the app using URL schemes
-				// window.addEventListener('pagehide', preventPopup);
-				// window.location = "hollywood://?param=3"; // this will print a warning message on IOS
+				window.addEventListener('pagehide', preventPopup);
+				window.location = "hollywood://?param=3"; // this will print a warning message on IOS
 			} 
 			else if (androidOS) {
 				//If the app is not installed the script will wait for 2sec and redirect to web.
