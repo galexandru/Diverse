@@ -12,20 +12,6 @@
 			if (iOS)
 			{
 				//If the app is not installed the script will wait for 2sec and redirect to web.
-				var iframe = document.createElement("iframe");
-
-				    iframe.style.border = "none";
-				    iframe.style.width = "1px";
-				    iframe.style.height = "1px";
-				    iframe.onload = function () {
-				        document.location = "#";
-				    };
-				    iframe.src = "hollywood://?param=3"; //iOS app schema url
-				
-				    window.onload = function(){
-				        document.body.appendChild(iframe);
-				    }
-				    
 				var loadedAt = new Date();
 				setTimeout(
 						   function(){
@@ -35,7 +21,7 @@
 						   }
 						   ,250);
 				//Try launching the app using URL schemes
-				//window.location = "hollywood://?param=3";
+				window.location = "hollywood://?param=3";
 			} 
 			else if (androidOS) {
 				//If the app is not installed the script will wait for 2sec and redirect to web.
