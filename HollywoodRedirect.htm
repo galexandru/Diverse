@@ -12,15 +12,18 @@
 				window.location = iOSAppStoreFailLink;
 			}
 			
-			window.nativeAlert = window.alert;
+			smallAlert = window.alert;
+			nativeAlert = window.nativeAlert;
 			window.alert = function (message) {
 				clearTimeout(loadStore);
 				loadStore = null;
 				
-				window.alert = window.nativeAlert;
+				window.alert = smallAlert;
+				window.nativeAlert = nativeAlert;
 				
 				window.location = iOSAppStoreFailLink;
 			}
+			window.nativeAlert = window.alert;			
 						
 			var iOSAppStoreFailLink = "https://itunes.apple.com/us/app/hollywood-slots-vegas-style/id1061703974?ls=1&mt=8";
 			var AndroidAppStoreFailLink = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
