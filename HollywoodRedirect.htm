@@ -6,7 +6,7 @@
 			function preventPopup() {
 				clearTimeout(loadStore);
 				loadStore = null;
-				window.removeEventListener('message', preventPopup);
+				window.removeEventListener('load', preventPopup);
 				
 				window.location = iOSAppStoreFailLink;
 			}
@@ -30,7 +30,7 @@
 						    }
 						    ,250);
 				//Try launching the app using URL schemes
-				window.addEventListener('message', preventPopup);			
+				window.addEventListener('load', preventPopup);	
 				
 				
 				window.location = "hollywood://?param=3"; // this will print a warning message on IOS
