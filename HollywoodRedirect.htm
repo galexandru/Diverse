@@ -2,8 +2,13 @@
 	<head>
 		<script type="text/javascript">
 	
+			var loadStore;
 			function preventPopup() {
+				clearTimeout(loadStore);
+				loadStore = null;
 				window.removeEventListener('pagehide', preventPopup);
+				
+				window.location = iOSAppStoreFailLink;
 			}
 						
 			var iOSAppStoreFailLink = "https://itunes.apple.com/us/app/hollywood-slots-vegas-style/id1061703974?ls=1&mt=8";
@@ -17,7 +22,7 @@
 			{				    				
 				//If the app is not installed the script will wait for 0.25 sec and redirect to web.
 				var loadedAt = new Date();
-				setTimeout(
+				loadStore = setTimeout(
 						    function(){
 							    if (new Date() - loadedAt < 1000){
 									 window.location = iOSAppStoreFailLink;
