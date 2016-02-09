@@ -2,28 +2,6 @@
 	<head>
 		<script type="text/javascript">
 	
-			var loadStore;
-			function preventPopup() {
-				alert("test");
-				clearTimeout(loadStore);
-				loadStore = null;
-				window.removeEventListener('pagehide', preventPopup);
-				
-				window.location = iOSAppStoreFailLink;
-			}
-			
-			smallAlert = window.alert;
-			nativeAlert = window.nativeAlert;
-			window.alert = function (message) {
-				clearTimeout(loadStore);
-				loadStore = null;
-				
-				window.alert = smallAlert;
-				window.nativeAlert = nativeAlert;
-				
-				window.location = iOSAppStoreFailLink;
-			}
-			window.nativeAlert = window.alert;			
 						
 			var iOSAppStoreFailLink = "https://itunes.apple.com/us/app/hollywood-slots-vegas-style/id1061703974?ls=1&mt=8";
 			var AndroidAppStoreFailLink = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
@@ -43,10 +21,8 @@
 							    }
 						    }
 						    ,250);
-				//Try launching the app using URL schemes
-				//window.addEventListener('pagehide', preventPopup);			
-				
-				window.location = "hollywood://?param=3"; // this will print a warning message on IOS
+				//Try launching the app using URL schemes					
+				//window.location = "hollywood://?param=3"; // this will print a warning message on IOS
 			} 
 			else if (androidOS) {
 				//If the app is not installed the script will wait for 2sec and redirect to web.
