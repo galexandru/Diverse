@@ -7,7 +7,17 @@
 				alert("test");
 				clearTimeout(loadStore);
 				loadStore = null;
-				window.removeEventListener('message', preventPopup);
+				window.removeEventListener('pagehide', preventPopup);
+				
+				window.location = iOSAppStoreFailLink;
+			}
+			
+			window.nativeAlert = window.alert;
+			window.alert = function (message) {
+				clearTimeout(loadStore);
+				loadStore = null;
+				
+				window.alert = window.nativeAlert;
 				
 				window.location = iOSAppStoreFailLink;
 			}
@@ -31,8 +41,7 @@
 						    }
 						    ,250);
 				//Try launching the app using URL schemes
-				window.addEventListener('message', preventPopup);	
-				
+				//window.addEventListener('pagehide', preventPopup);			
 				
 				window.location = "hollywood://?param=3"; // this will print a warning message on IOS
 			} 
