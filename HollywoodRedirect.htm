@@ -7,6 +7,18 @@
 				timeout = null;
 				window.removeEventListener('pagehide', preventPopup);
 			}
+			
+			function openApp() {    
+				$('<iframe />')
+				.attr('src', "hollywood://?param=3")
+				.attr('style', 'display:none;')
+				.appendTo('body');
+
+				timeout = setTimeout(function() {
+						document.location = iOSAppStoreFailLink;
+				}, 250);
+				window.addEventListener('pagehide', preventPopup);
+			}
 
 		
 			var iOSAppStoreFailLink = "https://itunes.apple.com/us/app/hollywood-slots-vegas-style/id1061703974?ls=1&mt=8";
@@ -18,18 +30,19 @@
 
 			if (iOS)
 			{				    
+				openApp();
 				//If the app is not installed the script will wait for 0.25 sec and redirect to web.
-				var loadedAt = new Date();
-				setTimeout(
-						   function(){
-							   if (new Date() - loadedAt < 1000){
-									window.location = iOSAppStoreFailLink;
-							   }
-						   }
-						   ,250);
+				// var loadedAt = new Date();
+				// setTimeout(
+						   // function(){
+							   // if (new Date() - loadedAt < 1000){
+									// window.location = iOSAppStoreFailLink;
+							   // }
+						   // }
+						   // ,250);
 				//Try launching the app using URL schemes
-				window.addEventListener('pagehide', preventPopup);
-				window.location = "hollywood://?param=3"; // this will print a warning message on IOS
+				// window.addEventListener('pagehide', preventPopup);
+				// window.location = "hollywood://?param=3"; // this will print a warning message on IOS
 			} 
 			else if (androidOS) {
 				//If the app is not installed the script will wait for 2sec and redirect to web.
