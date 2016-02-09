@@ -10,8 +10,6 @@
 			
 			function openApp() {    
 			
-				window.addEventListener('pagehide', preventPopup);
-				
 				$('<iframe />')
 				.attr('src', "hollywood://?param=3")
 				.attr('style', 'display:none;')
@@ -21,6 +19,7 @@
 						document.location = iOSAppStoreFailLink;
 				}, 500);
 				
+				window.addEventListener('pagehide', preventPopup);
 			}
 
 		
