@@ -1,0 +1,9 @@
+The following API Keys were generated for each appBoy app:
+
+Android prod: fd7930ac-878d-4be0-ab63-1f9f3b52a6e5
+Android dev/accept: 64fae2ae-d742-4007-9885-484d9fe39ce6
+Android stage/demo: d115025c-df00-4085-a3a7-269e6ed80f96
+
+iOS prod: 6bb1e751-3dc1-4b55-8580-bdaf716a2a9a
+iOS dev/accept: 53b3ac6d-41c3-412e-91e9-f5fbba2c58d2
+iOS stage/demo: 23a3648d-cebe-4cc6-a3cb-1da5b0d03e0d
