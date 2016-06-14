@@ -1,0 +1,76 @@
+FB App ID:
+Accept:	1485869671718900
+Prod:	1459009344404933
+Stage:	1485869875052213
+
+
+Title: 
+Tournament Winner!
+
+Message: 
+I just won a Tournament! Here are 7,777 FREE coins for you. Come join the adventure in Hollywood Slots!
+
+
+Link:
+http://admin.png-hollywood.ow-prod.com/owp/a/5672c99de4b0faa031ef9166
+
+ID:
+Accept: 1681249135447618
+Prod:   1746109755618080
+Stage:	1718315058405170
+
+Title: 
+Amazing Win!
+
+Message: 
+What an AMAZING WIN! You can win MILLIONS in the best new Slots game! Play now.
+
+
+Link:
+http://admin.png-hollywood.ow-prod.com/owp/a/5672ca00e4b0faa031ef916b
+
+ID: 
+Accept: 964036113677400
+Prod: 	1642899765971033
+Stage:	206860889657168
+
+
+Title: 
+Level Up!
+
+Message: 
+I just leveled up and earned FREE bonus coins! Come play with me and get 7,777 FREE coins!
+
+
+Link:
+http://admin.png-hollywood.ow-prod.com/owp/a/5672c9d0e4b0faa031ef9167
+
+ID:
+Accept: 1257906190903914
+Prod:	753539631439738
+Stage:	1729983243902950
+
+
+Title:
+Free Spins!
+
+Message:
+I just won some Free Spins! Here are 7,777 FREE coins for you. Come join the adventure in Hollywood Slots!
+
+Link:
+http://admin.png-hollywood.ow-prod.com/owp/a/5672c9eae4b0faa031ef9169
+
+ID:
+Accept:	829142787194297
+Prod:	749220521875615
+Stage:	733449513466701
+
+
+
+
+
+
+
+
+
+
