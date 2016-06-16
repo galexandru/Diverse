@@ -220,7 +220,16 @@ var QueryString = function () {
 				   }
 				   ,2000);
 		//Try launching the app using URL schemes
-		window.location="hollywoodslots://";//"//promocodes/"+QueryString.code;
+		
+		string str = QueryString.code;
+		if (str.length == 0)
+		{
+			window.location.replace("hollywoodslots://");
+		}
+		else
+		{
+			window.location.replace("hollywoodslots://promocodes/"+QueryString.code);
+		}
 	}
 	else {
 	
