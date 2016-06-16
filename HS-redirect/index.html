@@ -211,7 +211,6 @@ var QueryString = function () {
 					,250);
 		//Try launching the app using URL schemes
 		window.location.replace(iOSUrlScheme + QueryString.code);
-		//window.open(iOSUrlScheme + QueryString.code, "_self");
 	} 
 	else if (androidOS) {
 		//If the app is not installed the script will wait for 2sec and redirect to web.
@@ -225,7 +224,6 @@ var QueryString = function () {
 				   ,2000);
 		//Try launching the app using URL schemes		
 		window.location.replace("hollywoodslots://promocodes/"+QueryString.code);
-		//window.open(AndroidUrlScheme + QueryString.code, "_self");
 	}
 	else {
 	
