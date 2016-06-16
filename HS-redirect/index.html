@@ -211,7 +211,7 @@ var QueryString = function () {
 	} 
 	else if (androidOS) {
 		//If the app is not installed the script will wait for 2sec and redirect to web.
-		var loadedAt = +new Date;
+		var loadedAt = new Date();
 		setTimeout(
 				   function(){
 					   if (+new Date - loadedAt < 3000){
