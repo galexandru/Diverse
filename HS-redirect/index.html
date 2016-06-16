@@ -219,17 +219,8 @@ var QueryString = function () {
 					   }
 				   }
 				   ,2000);
-		//Try launching the app using URL schemes
-		
-		string str = QueryString.code;
-		if (str.length == 0)
-		{
-			window.location.replace("hollywoodslots://");
-		}
-		else
-		{
-			window.location.replace("hollywoodslots://promocodes/"+QueryString.code);
-		}
+		//Try launching the app using URL schemes		
+		window.location.replace("hollywoodslots://promocodes/"+QueryString.code);
 	}
 	else {
 	
