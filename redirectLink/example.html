@@ -2,157 +2,112 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <script src="browser-deeplink.js" type="text/javascript"></script>
-    <script type="text/javascript">
- /**
- * return the GET query parameters *
- * @returns {String}
- */
- 
-var QueryString = function () {
+    <script src="browser-deeplink.js" type="text/javascript"></script>	
+	<script>
+		deeplink.setup({
+			iOS: {
+				appId: "1061703974",
+				appName: "hollywoodslots",
+			},
+			android: {
+				appId: "com.openwager.hollywood",
+				fallbackURL: "https://play.google.com/store/apps/details?id=com.openwager.hollywood"
+			}
+		});
+		
+		
+	var QueryString = function () {
+		var querystring = {};
+		var query = window.location.search.substring(1);
+		var vars = query.split("&");
+		for (var i = 0; i < vars.length; i++) {
+			var pair = vars[i].split("=");
+				// If first entry with this name
+			if (typeof querystring[pair[0]] === "undefined") {
+			  querystring[pair[0]] = decodeURIComponent(pair[1]);
+				// If second entry with this name
+			} else if (typeof query_string[pair[0]] === "string") {
+				var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+				querystring[pair[0]] = arr;
+				// If third or later entry with this name
+			} else {
+				querystring[pair[0]].push(decodeURIComponent(pair[1]));
+			}
+		} 
+		
+		return querystring;
+		
+	}();
 
-	var querystring = {};
-	var query = window.location.search.substring(1);
-	var vars = query.split("&");
-	for (var i = 0; i < vars.length; i++) {
-		var pair = vars[i].split("=");
-		    // If first entry with this name
-		if (typeof querystring[pair[0]] === "undefined") {
-		  querystring[pair[0]] = decodeURIComponent(pair[1]);
-		    // If second entry with this name
-		} else if (typeof query_string[pair[0]] === "string") {
-			var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
-			querystring[pair[0]] = arr;
-		    // If third or later entry with this name
-		} else {
-			querystring[pair[0]].push(decodeURIComponent(pair[1]));
+	 /**
+	 * Determine the mobile operating system.
+	 * This function either returns 'iOS', 'Android' or 'unknown'
+	 *
+	 * @returns {String}
+	 */
+
+	function getMobileOperatingSystem() {
+		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+		if( userAgent.match( /IE/i ) )
+		{
+		return 'Windows';
 		}
-	} 
+		else if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
+		{
+		return 'iOS';
+		}
+		else if( userAgent.match( /Android/i ) )
+		{
+		return 'Android';
+		}
+		else if( userAgent.match(/BlackBerry/i) )
+		{
+		return 'Blackberry';
+		}
+		else
+		{
+		return 'other';
+		}
+	}
+
+	var OS = getMobileOperatingSystem();
+
+	function gotolink(variable) {
+		deeplink.open(variable);
+	}
+
+	/**
+	* Do the redirects
+	*/
+
+	switch (OS) {
+
+		case 'iOS':
+				var ioslink = 'hollywoodslots://promocodes/'+ QueryString.code;
+			    window.setTimeout(gotolink(ioslink),1000);
+			break;
+
+		case 'Android':
+				var androidlink = 'hollywoodslots://promocodes/'+ QueryString.code;
+			    window.setTimeout(gotolink(androidlink),1000);	
+			break;
+
+		case 'Windows' || 'Blackberry':
+				var facebooklink = "https://apps.facebook.com/ow-hollywood";
+				window.setTimeout(gotolink(facebooklink),1000);	
+			break;
+
+		case 'other':
+				//Launch the website for 1App
+				var facebooklink = "https://apps.facebook.com/ow-hollywood";
+				window.setTimeout(gotolink(facebooklink),1000);				
+			break;
+
+	}
+		
+		
+	</script>
 	
-    return querystring;
-    
-}();
-
-
-
-function parseUrl() {
-
-return 'slots';
-	var href = window.location.href;
-	if (href.indexOf('slots') != -1) {
-		return 'slots';
-	}
-	else if (href.indexOf('blackjack') != -1) {
-		return 'blackjack';
-	} 
-	else if (href.indexOf('konami') != -1) {
-		return 'konami';
-	}
-
-}
-
- /**
- * Determine the mobile operating system.
- * This function either returns 'iOS', 'Android' or 'unknown'
- *
- * @returns {String}
- */
-
-function getMobileOperatingSystem() {
-	var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-	if( userAgent.match( /IE/i ) )
-	{
-	return 'Windows';
-	}
-	else if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
-	{
-	return 'iOS';
-	}
-	else if( userAgent.match( /Android/i ) )
-	{
-	return 'Android';
-	}
-	else if( userAgent.match(/BlackBerry/i) )
-	{
-	return 'Blackberry';
-	}
-	else
-	{
-	return 'other';
-	}
-}
-
-var OS = getMobileOperatingSystem();
-
-function gotolink(variable) {
-
-	deeplink.open(variable);
-
-}
-
-/**
-* Do the redirects
-*/
-
-var gameType = parseUrl();
-
-switch (OS) {
-
-    case 'iOS':
-
-    	if (gameType == 'slots') { 
-
-       		window.location = 'myvegas-'+gameType+'://coupon/'+ QueryString.a;
- 
-       	} else if (gameType == 'blackjack') {
-
-       		window.location = 'myvegas-'+gameType+'://coupon/'+ QueryString.a;
-
-       	} else if (gameType == 'konami') {
-
-	       var ioslink = gameType+'-slots://coupon/'+ QueryString.a;
-	       //window.location = ioslink;
-		   window.setTimeout(gotolink(ioslink),1000);
-       	}
-        break;
-
-    case 'Android':
-
-    	if(gameType == 'slots') {   	
-
-	    	var androidlink = "https://mobile.playstudios.com/mobile/coupon/"+ QueryString.a;	    	
-	    	window.setTimeout(gotolink(androidlink),1000);
-
-        } else if(gameType == 'blackjack'){
-
-			var androidlink = 'https://bjmobile.playstudios.com/blackjack/coupon/'+ QueryString.a; 
-		   	window.setTimeout(gotolink(androidlink),1000);	       
-
-        } else if(gameType == 'konami'){
-
-	    	var androidlink = 'mykonami://slots/coupon/'+ QueryString.a;
-			window.setTimeout(gotolink(androidlink),1000);
-
-	    }
- 
-        break;
-
-    case 'Windows' || 'Blackberry':
-   
-   		$('.redirect-frame').html('');
-    	$('#warning').html('<h1>Sorry!</h1><h3>We don\'t have a compatible app for your mobile device yet.</h3>');
- 
-        break;
-
-    case 'other':
-    	$('.redirect-frame').html('');
-    	$('#warning').html('<h1>Sorry!</h1><h3>Please access this page from your mobile device</h3>');
-
-    	break;
-
-}
-	
-    </script>
     <style>
    	
 	body {
