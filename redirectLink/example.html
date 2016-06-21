@@ -83,7 +83,6 @@
 				   }
 				   ,2000);
 		window.location.href(variable);
-		//deeplink.open(variable);
 	}
 
 	/**
@@ -93,7 +92,7 @@
 	switch (OS) {
 
 		case 'iOS':
-				var ioslink = 'hollywoodslots://promocodes/'+ QueryString.code;
+				var ioslink = 'hollywood://promocodes/'+ QueryString.code;
 				var iosStore = "https://itunes.apple.com/us/app/id1061703974?mt=8";
 			    window.setTimeout(gotolink(ioslink, iosStore),1000);
 			break;
