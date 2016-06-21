@@ -61,16 +61,16 @@
 
 	var OS = getMobileOperatingSystem();
 	
-	function gotolink(app, store) {
+	function gotolink(appLink, store) {
 	
-		var loadedAt = +new Date;
+		var loadedAt = Date.now();
 		loadStore = setTimeout(
 						   function(){
-							   if (+new Date - loadedAt < 3000){
+							   if (Date.now() - loadedAt < 3000){
 									window.location = store;
 							   }
 						   } ,2000);
-		window.location = app;
+		window.location.href = appLink;
 	}
 
 	/**
