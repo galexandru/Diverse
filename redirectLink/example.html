@@ -4,8 +4,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <script src="browser-deeplink.js" type="text/javascript"></script>
     <script type="text/javascript">
-
-	 /**
+ /**
  * return the GET query parameters *
  * @returns {String}
  */
@@ -38,9 +37,7 @@ var QueryString = function () {
 
 function parseUrl() {
 
-	return 'slots';
-	
-	
+return 'slots';
 	var href = window.location.href;
 	if (href.indexOf('slots') != -1) {
 		return 'slots';
@@ -154,128 +151,6 @@ switch (OS) {
     	break;
 
 }
-
-//bit of jquery for the buttons since we have it installed...
-
-$('img#androidIcon, img#iosIcon').on('click', function(){
-
-	window.location.href = $(this).attr('data-link');
-
-})
-
-
-	
-	
-    /*deeplink.setup({
-        iOS: {
-            appId: "1061703974",
-            appName: "hollywoodslots",
-        },
-        android: {
-            appId: "com.openwager.hollywood"
-        }
-    });
-	
-	/*deeplink.setup({
-		iOS: {
-			storeUrl: "https://itunes.apple.com/us/app/id1061703974?mt=8",
-		},
-		android: {
-			storeUrl:"https://play.google.com/store/apps/details?id=com.openwager.hollywood",
-		}
-	});*/
-	
-    function clickHandler(uri) {
-        deeplink.open(uri);
-        return false;
-    }
-
-	var QueryString = function () {
-	  // This function is anonymous, is executed immediately and 
-	  // the return value is assigned to QueryString!
-	  var query_string = {};
-	  var query = window.location.search.substring(1);
-	  var vars = query.split("&");
-	  for (var i=0;i<vars.length;i++) {
-		var pair = vars[i].split("=");
-			// If first entry with this name
-		if (typeof query_string[pair[0]] === "undefined") {
-		  query_string[pair[0]] = decodeURIComponent(pair[1]);
-			// If second entry with this name
-		} else if (typeof query_string[pair[0]] === "string") {
-		  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
-		  query_string[pair[0]] = arr;
-			// If third or later entry with this name
-		} else {
-		  query_string[pair[0]].push(decodeURIComponent(pair[1]));
-		}
-	  } 
-	  return query_string;
-	}();
-	
-	/**
-	 * Determine the mobile operating system.
-	 * This function either returns 'iOS', 'Android' or 'unknown'
-	 *
-	 * @returns {String}
-	 */
-
-	function getMobileOperatingSystem() {
-	
-		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-		if( userAgent.match( /IE/i ) )
-		{
-		return 'Windows';
-		}
-		else if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
-		{
-		return 'iOS';
-		}
-		else if( userAgent.match( /Android/i ) )
-		{
-		return 'Android';
-		}
-		else if( userAgent.match(/BlackBerry/i) )
-		{
-		return 'Blackberry';
-		}
-		else
-		{
-		return 'other';
-		}
-	}
-	
-	var OS = getMobileOperatingSystem();
-	
-	function gotolink(variable) {
-		deeplink.open(variable);
-	}
-	
-	window.onload = function() {
-		deeplink.open("hollywoodslots://promocodes/"+QueryString.code);
-	}
-	
-	var iOSUrlScheme = "hollywoodslots://promocodes/";
-	var AndroidUrlScheme = "hollywoodslots://promocodes/";
-	
-	//var iOSAppStoreFailLink = "https://itunes.apple.com/us/app/id1061703974?mt=8";
-	//var AndroidAppStoreFailLink = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
-	
-	switch (OS) {
-		case 'iOS':		
-		    var ioslink = iOSUrlScheme + QueryString.code;		   
-		    window.setTimeout(gotolink(ioslink),2000);			
-			break;
-
-		case 'Android':
-			var androidlink = AndroidUrlScheme + QueryString.code;	    	
-			window.setTimeout(gotolink(androidlink),2000);
-			break;
-		default:
-			//Launch the website for 1App
-			window.location ="https://apps.facebook.com/ow-hollywood";
-			break;
-	}*/
 	
     </script>
     <style>
