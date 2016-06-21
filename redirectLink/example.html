@@ -2,118 +2,8 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-	<script type="text/javascript">
-		
-		
-	var QueryString = function () {
-	  // This function is anonymous, is executed immediately and 
-	  // the return value is assigned to QueryString!
-	  var query_string = {};
-	  var query = window.location.search.substring(1);
-	  var vars = query.split("&");
-	  for (var i=0;i<vars.length;i++) {
-		var pair = vars[i].split("=");
-			// If first entry with this name
-		if (typeof query_string[pair[0]] === "undefined") {
-		  query_string[pair[0]] = decodeURIComponent(pair[1]);
-			// If second entry with this name
-		} else if (typeof query_string[pair[0]] === "string") {
-		  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
-		  query_string[pair[0]] = arr;
-			// If third or later entry with this name
-		} else {
-		  query_string[pair[0]].push(decodeURIComponent(pair[1]));
-		}
-	  } 
-	  return query_string;
-	}();
-
-	 /**
-	 * Determine the mobile operating system.
-	 * This function either returns 'iOS', 'Android' or 'unknown'
-	 *
-	 * @returns {String}
-	 */
-
-	function getMobileOperatingSystem() {
-		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-		if( userAgent.match( /IE/i ) )
-		{
-		return 'Windows';
-		}
-		else if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
-		{
-		return 'iOS';
-		}
-		else if( userAgent.match( /Android/i ) )
-		{
-		return 'Android';
-		}
-		else if( userAgent.match(/BlackBerry/i) )
-		{
-		return 'Blackberry';
-		}
-		else
-		{
-		return 'other';
-		}
-	}
-
-	var OS = getMobileOperatingSystem();
 	
-	function gotolink(appLink, store) {
-	
-		var loadedAt = Date.now();
-		loadStore = setTimeout(
-						   function(){						   
-								doLoad = setTimeout(
-									function(){
-										if (Date.now() - loadedAt < 5000){
-											window.location = store;
-									    }
-									}, 2000);
-								
-								window.location.replace(appLink);
-						   } ,2000);		
-	}
-
-	/**
-	* Do the redirects
-	*/
-
-	switch (OS) {
-
-		case 'iOS':
-				var ioslink = "hollywoodslots://promocodes/" + QueryString.code;
-				var iosStore = "https://itunes.apple.com/us/app/id1061703974?mt=8";
-			    window.setTimeout(gotolink(ioslink, iosStore),100);
-			break;
-
-		case 'Android':
-				var androidlink = "hollywoodslots://hollywood.com/promocodes/" + QueryString.code;
-				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
-			    window.setTimeout(gotolink(androidlink, androidStore), 100);	
-			break;
-
-		case 'Windows' || 'Blackberry':
-				var facebooklink = "https://apps.facebook.com/ow-hollywood";
-				window.setTimeout(gotolink(facebooklink, facebooklink), 2000);	
-			break;
-
-		case 'other':
-				//Launch the website for 1App
-				var facebooklink = "https://apps.facebook.com/ow-hollywood";
-				window.setTimeout(gotolink(facebooklink, facebooklink), 2000);				
-			break;
-
-	}
-	
-	window.location.replace("hollywoodslots://hollywood.com");
-		
-		
-	</script>
-	
-    <style>
+	<style>
    	
 	body {
 		font-size: 100%;
@@ -274,6 +164,119 @@
 	}
 
     </style>
+	
+	<script type="text/javascript">
+		
+		
+	var QueryString = function () {
+	  // This function is anonymous, is executed immediately and 
+	  // the return value is assigned to QueryString!
+	  var query_string = {};
+	  var query = window.location.search.substring(1);
+	  var vars = query.split("&");
+	  for (var i=0;i<vars.length;i++) {
+		var pair = vars[i].split("=");
+			// If first entry with this name
+		if (typeof query_string[pair[0]] === "undefined") {
+		  query_string[pair[0]] = decodeURIComponent(pair[1]);
+			// If second entry with this name
+		} else if (typeof query_string[pair[0]] === "string") {
+		  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+		  query_string[pair[0]] = arr;
+			// If third or later entry with this name
+		} else {
+		  query_string[pair[0]].push(decodeURIComponent(pair[1]));
+		}
+	  } 
+	  return query_string;
+	}();
+
+	 /**
+	 * Determine the mobile operating system.
+	 * This function either returns 'iOS', 'Android' or 'unknown'
+	 *
+	 * @returns {String}
+	 */
+
+	function getMobileOperatingSystem() {
+		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+		if( userAgent.match( /IE/i ) )
+		{
+		return 'Windows';
+		}
+		else if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
+		{
+		return 'iOS';
+		}
+		else if( userAgent.match( /Android/i ) )
+		{
+		return 'Android';
+		}
+		else if( userAgent.match(/BlackBerry/i) )
+		{
+		return 'Blackberry';
+		}
+		else
+		{
+		return 'other';
+		}
+	}
+
+	var OS = getMobileOperatingSystem();
+	
+	function gotolink(appLink, store) {
+	
+		var loadedAt = Date.now();
+		loadStore = setTimeout(
+						   function(){						   
+								doLoad = setTimeout(
+									function(){
+										if (Date.now() - loadedAt < 5000){
+											window.location = store;
+									    }
+									}, 2000);
+								
+								window.location.replace(appLink);
+						   } ,2000);		
+	}
+
+	/**
+	* Do the redirects
+	*/
+
+	switch (OS) {
+
+		case 'iOS':
+				var ioslink = "hollywoodslots://promocodes/" + QueryString.code;
+				var iosStore = "https://itunes.apple.com/us/app/id1061703974?mt=8";
+			    window.setTimeout(gotolink(ioslink, iosStore),100);
+			break;
+
+		case 'Android':
+				var androidlink = "hollywoodslots://hollywood.com/promocodes/" + QueryString.code;
+				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
+			    window.setTimeout(gotolink(androidlink, androidStore), 100);	
+			break;
+
+		case 'Windows' || 'Blackberry':
+				var facebooklink = "https://apps.facebook.com/ow-hollywood";
+				window.setTimeout(gotolink(facebooklink, facebooklink), 2000);	
+			break;
+
+		case 'other':
+				//Launch the website for 1App
+				var facebooklink = "https://apps.facebook.com/ow-hollywood";
+				window.setTimeout(gotolink(facebooklink, facebooklink), 2000);				
+			break;
+
+	}
+	
+	window.location.replace("hollywoodslots://");
+		
+		
+	</script>
+	
+    
 </head>
 <body>
 <div class="png-wrapper png-wrapper-mb">
