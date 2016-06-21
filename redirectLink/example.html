@@ -2,18 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <script src="browser-deeplink.js" type="text/javascript"></script>	
-	<script>
-		deeplink.setup({
-			iOS: {
-				appId: "1061703974",
-				appName: "hollywood",
-			},
-			android: {
-				appId: "com.openwager.hollywood",
-				fallbackURL: "https://play.google.com/store/apps/details?id=com.openwager.hollywood"
-			}
-		});
+	<script type="text/javascript">
 		
 		
 	var QueryString = function () {
@@ -82,7 +71,7 @@
 					   }
 				   }
 				   ,2000);
-		window.location(app);
+		window.location.replace(app);
 	}
 
 	/**
@@ -92,14 +81,14 @@
 	switch (OS) {
 
 		case 'iOS':
-				var ioslink = 'hollywood://promocodes/'+ QueryString.code;
+				var ioslink = "hollywoodslots://promocodes/" + QueryString.code;
 				var iosStore = "https://itunes.apple.com/us/app/id1061703974?mt=8";
 				gotolink(ioslink, iosStore);
 			    //window.setTimeout(gotolink(ioslink, iosStore),1000);
 			break;
 
 		case 'Android':
-				var androidlink = 'hollywoodslots://promocodes/'+ QueryString.code;
+				var androidlink = "hollywoodslots://promocodes/" + QueryString.code;
 				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
 				gotolink(androidlink, androidStore);
 			    //window.setTimeout(gotolink(androidlink, androidStore),1000);	
@@ -107,13 +96,15 @@
 
 		case 'Windows' || 'Blackberry':
 				var facebooklink = "https://apps.facebook.com/ow-hollywood";
-				window.setTimeout(gotolink(facebooklink, facebooklink),1000);	
+				gotolink(facebooklink, facebooklink);
+				//window.setTimeout(gotolink(facebooklink, facebooklink),1000);	
 			break;
 
 		case 'other':
 				//Launch the website for 1App
 				var facebooklink = "https://apps.facebook.com/ow-hollywood";
-				window.setTimeout(gotolink(facebooklink, facebooklink),1000);				
+				gotolink(facebooklink, facebooklink);
+				//window.setTimeout(gotolink(facebooklink, facebooklink),1000);				
 			break;
 
 	}
