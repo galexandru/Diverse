@@ -64,7 +64,7 @@
 	function gotolink(app, store) {
 	
 		var loadedAt = new Date();
-		var loadStore = setTimeout(
+		loadStore = setTimeout(
 						   function(){
 							   if (Date() - loadedAt < 3000){
 									window.location = store;
