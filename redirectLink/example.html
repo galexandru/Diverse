@@ -24,10 +24,6 @@
 		}
 	});*/
 	
-	window.onload = function() {
-		deeplink.open("hollywoodslots://promocodes/"+QueryString.code);
-	}
-
     function clickHandler(uri) {
         deeplink.open(uri);
         return false;
@@ -65,7 +61,6 @@
 
 	function getMobileOperatingSystem() {
 	
-	return 'Android';
 		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 		if( userAgent.match( /IE/i ) )
 		{
@@ -95,7 +90,9 @@
 		deeplink.open(variable);
 	}
 	
-	
+	//window.onload = function() {
+	//	deeplink.open("hollywoodslots://promocodes/"+QueryString.code);
+	//}
 	
 	var iOSUrlScheme = "hollywoodslots://promocodes/";
 	var AndroidUrlScheme = "hollywoodslots://promocodes/";
