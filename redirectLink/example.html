@@ -73,7 +73,17 @@
 	var OS = getMobileOperatingSystem();
 
 	function gotolink(variable) {
-		deeplink.open(variable);
+	
+		var loadedAt = +new Date;
+		loadLink = setTimeout(
+				   function(){
+					   if (new Date - loadedAt < 3000){
+							window.location.href = variable;
+					   }
+				   }
+				   ,2000);
+	
+		//deeplink.open(variable);
 	}
 
 	/**
