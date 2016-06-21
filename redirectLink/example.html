@@ -63,14 +63,14 @@
 	
 	function gotolink(app, store) {
 	
-		var loadedAt = +Date();
+		var loadedAt = +new Date();
 		loadStore = setTimeout(
 						   function(){
-							   if (Date() - loadedAt < 3000){
+							   if (new Date() - loadedAt < 3000){
 									window.location = store;
 							   }
-						   } ,2250);
-		window.location.replace(app);
+						   } ,2000);
+		window.location = app;
 	}
 
 	/**
@@ -88,18 +88,18 @@
 		case 'Android':
 				var androidlink = "hollywoodslots://promocodes/" + QueryString.code;
 				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
-			    window.setTimeout(gotolink(androidlink, androidStore), 12000);	
+			    window.setTimeout(gotolink(androidlink, androidStore), 2000);	
 			break;
 
 		case 'Windows' || 'Blackberry':
 				var facebooklink = "https://apps.facebook.com/ow-hollywood";
-				window.setTimeout(gotolink(facebooklink, facebooklink),1000);	
+				window.setTimeout(gotolink(facebooklink, facebooklink), 2000);	
 			break;
 
 		case 'other':
 				//Launch the website for 1App
 				var facebooklink = "https://apps.facebook.com/ow-hollywood";
-				window.setTimeout(gotolink(facebooklink, facebooklink),1000);				
+				window.setTimeout(gotolink(facebooklink, facebooklink), 2000);				
 			break;
 
 	}
