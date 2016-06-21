@@ -63,15 +63,14 @@
 	
 	function gotolink(app, store) {
 	
-		var loadedAt = +new Date;
-		loadLink = setTimeout(
-				   function(){
-					   if (new Date - loadedAt < 3000){
-							window.location = store;
-					   }
-				   }
-				   ,2000);
-		window.location.replace(app);
+		var loadedAt = new Date();
+		window.setTimeout(
+					   function(){
+						   if (Date() - loadedAt < 3000){
+								window.location = store;
+						   }
+					   } ,2000);
+		window.location = app;
 	}
 
 	/**
