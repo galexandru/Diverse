@@ -65,12 +65,16 @@
 	
 		var loadedAt = Date.now();
 		loadStore = setTimeout(
-						   function(){
-							   if (Date.now() - loadedAt < 3000){
-									window.location = store;
-							   }
-						   } ,2000);
-		//window.location.href = appLink;
+						   function(){						   
+								doLoad = setTimeout(
+									function(){
+										if (Date.now() - loadedAt < 5000){
+											window.location = store;
+									    }
+									}, 1000);
+								
+							    window.location = appLink;
+						   } ,2000);		
 	}
 
 	/**
