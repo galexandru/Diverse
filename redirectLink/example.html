@@ -73,7 +73,7 @@
 									    }
 									}, 2000);
 								
-								window.location = appLink;
+								window.location.replace(appLink);
 						   } ,2000);		
 	}
 
@@ -90,7 +90,7 @@
 			break;
 
 		case 'Android':
-				var androidlink = "hollywoodslots://promocodes/" + QueryString.code;
+				var androidlink = "hollywoodslots://hollywood.com/promocodes/" + QueryString.code;
 				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
 			    window.setTimeout(gotolink(androidlink, androidStore), 2000);	
 			break;
