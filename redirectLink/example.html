@@ -227,17 +227,13 @@
 	function gotolink(appLink, store) {
 	
 		var loadedAt = Date.now();
-		loadStore = setTimeout(
-						   function(){						   
-								doLoad = setTimeout(
-									function(){
-										if (Date.now() - loadedAt < 5000){
-											window.location = store;
-									    }
-									}, 2000);
-								
-								window.location.replace(appLink);
-						   } ,2000);		
+		window.setTimeout(	function(){
+							if (Date.now() - loadedAt < 5000){
+								window.location = store;
+							}
+						}, 2000);
+					
+					window.location.replace(appLink);
 	}
 
 	//window.location = "hollywoodslots://";
