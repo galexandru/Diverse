@@ -228,19 +228,20 @@
         return navigator.userAgent.match('Android');
     }
 	
+	window.location = "intent://scan/#Intent;scheme=hollywoodslots;package=com.openwager.hollywood;end";
 	/**
 	* Do the redirects
-	*/	
+		
 	
 	function gotolink(appLink, store) {
 	
 		var loadedAt = Date.now();
 		tryToLoad = setTimeout(	function(){
-							if (Date.now() - loadedAt < 3500){
+							if (Date.now() - loadedAt < 500){
 								window.location.href = store;
 								//window.location = store;
 							}
-						}, 2000);
+						}, 1000);
 					
 		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
 			var iframe = document.createElement("iframe");
@@ -270,7 +271,7 @@
 			break;
 
 		case 'Android':
-				var androidlink = "hollywoodslots://promocodes/" + QueryString.code;
+				var androidlink = "hollywoodslots://";"//promocodes/" + QueryString.code;
 				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
 			    window.setTimeout(function(){gotolink(androidlink, androidStore)}, 2000);	
 			break;
@@ -287,7 +288,7 @@
 			break;
 
 	}
-	
+	*/
 		
 	</script>
 	
