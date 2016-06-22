@@ -228,17 +228,14 @@
         return navigator.userAgent.match('Android');
     }
 	
-	//window.location = "intent://scan/#Intent;scheme=hollywoodslots;package=com.openwager.hollywood;end";
-	
-	//window.alert(window.location);
-	
 	/**
 	* Do the redirects
 	*/	
 	
-	function gotolink(appLink, store) {
+	var scheme = "hollywoodslots";
+	var packageName = "com.openwager.hollywood";
 	
-		appLink = "intent://scan/#Intent;scheme=hollywoodslots;package=com.openwager.hollywood;end";
+	function gotolink(appLink, store) {
 	
 		var loadedAt = Date.now();
 		tryToLoad = setTimeout(	function(){
@@ -248,20 +245,25 @@
 							}
 						}, 1000);
 					
-		/*if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
-			var iframe = document.createElement("iframe");
-			iframe.onload = function() {
-				clearTimeout(tryToLoad);
-				iframe.parentNode.removeChild(iframe);
-				window.location.href = appLink;
-			};
+		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
+			appLink = "intent://promocodes/" + QueryString.code + "/#Intent;scheme=" + scheme + ";package=" + packageName + ";end";
+		}
+		
+		var iframe = document.createElement("iframe");
+		iframe.onload = function() {
+			clearTimeout(tryToLoad);
+			iframe.parentNode.removeChild(iframe);
+			window.location.href = appLink;
+		};
 
-			iframe.src = appLink;
-			iframe.setAttribute("style", "display:none;");
-			document.body.appendChild(iframe);
-		}*/
+		iframe.src = appLink;
+		iframe.setAttribute("style", "display:none;");
+		document.body.appendChild(iframe);
+		
 					
-		window.location.replace(appLink);					
+		//window.location.replace(appLink);
+
+		//window.alert(appLink);
 	}
 	
 	
@@ -275,7 +277,7 @@
 			break;
 
 		case 'Android':
-				var androidlink = "hollywoodslots://";"//promocodes/" + QueryString.code;
+				var androidlink = "hollywoodslots://promocodes/" + QueryString.code;
 				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
 			    window.setTimeout(function(){gotolink(androidlink, androidStore)}, 2000);	
 			break;
@@ -299,9 +301,6 @@
     
 </head>
 <body>
-
-<div class="logo col425"> <a href="intent://scan/#Intent;scheme=hollywoodslots;package=com.openwager.hollywood;end"><img src="images/HollyWoodSlots_Logo.png" alt="LINK TO APP" width="406" height="151" title="HollyWood Slots"/></a></div>
-
 <div class="png-wrapper png-wrapper-mb">
 <!-- HEADER IMAGE -->
 <div class="logo-container">
