@@ -234,6 +234,12 @@
 	
 	var scheme = "hollywoodslots";
 	var packageName = "com.openwager.hollywood";
+	var promoCode =  QueryString.code;
+	
+	if (promoCode)
+	{
+		promoCode = promoCode + "/";
+	}
 	
 	function gotolink(appLink, store) {
 	
@@ -241,12 +247,14 @@
 		tryToLoad = setTimeout(	function(){
 							if (Date.now() - loadedAt < 3500){
 								window.location.href = store;
-								//window.location = store;
 							}
 						}, 1000);
 					
 		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
-			appLink = "hollywoodslots://promocodes/" + QueryString.code + "/#Intent;scheme=" + scheme + ";package=" + packageName + ";end";
+			appLink = appLink + promoCode + "#Intent;scheme=" + scheme + ";package=" + packageName + ";end";
+		}
+		else{
+			appLink = appLink + promoCode;
 		}
 		
 		var iframe = document.createElement("iframe");
@@ -260,24 +268,18 @@
 		iframe.setAttribute("style", "display:none;");
 		document.body.appendChild(iframe);
 		
-					
-		//window.location.replace(appLink);
-
-		//window.alert(appLink);
-	}
-	
-	
+	}	
 
 	switch (OS) {
 
-		case 'iOS':
-				var ioslink = "hollywoodslots://promocodes/" + QueryString.code;
+		case 'iOS':				
+				var ioslink = "hollywoodslots://promocodes/";
 				var iosStore = "https://itunes.apple.com/us/app/id1061703974?mt=8";
 			    window.setTimeout(function(){gotolink(ioslink, iosStore)}, 2000);
 			break;
 
 		case 'Android':
-				var androidlink = "hollywoodslots://promocodes/" + QueryString.code;
+				var androidlink = "hollywoodslots://promocodes/";
 				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
 			    window.setTimeout(function(){gotolink(androidlink, androidStore)}, 2000);	
 			break;
