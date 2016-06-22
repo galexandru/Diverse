@@ -228,25 +228,35 @@
         return navigator.userAgent.match('Android');
     }
 	
-	window.location = "intent://scheme=hollywoodslots;package=com.openwager.hollywood;end";
 	/**
 	* Do the redirects
+	*/	
 	
 	function gotolink(appLink, store) {
 	
 		var loadedAt = Date.now();
 		tryToLoad = setTimeout(	function(){
 							if (Date.now() - loadedAt < 3500){
-								window.location = store;
+								window.location.href = store;
+								//window.location = store;
 							}
 						}, 2000);
 					
 		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
-			
+			var iframe = document.createElement("iframe");
+			iframe.onload = function() {
+				clearTimeout(tryToLoad);
+				iframe.parentNode.removeChild(iframe);
+				window.location.href = appLink;
+			};
+
+			iframe.src = appLink;
+			iframe.setAttribute("style", "display:none;");
+			document.body.appendChild(iframe);
 		}
 
 					
-					window.location.replace(appLink);					
+		//window.location.replace(appLink);					
 	}
 	
 	
@@ -277,7 +287,7 @@
 			break;
 
 	}
-	*/	
+	
 		
 	</script>
 	
