@@ -224,6 +224,14 @@
 
 	var OS = getMobileOperatingSystem();
 	
+	var isAndroid = function() {
+        return navigator.userAgent.match('Android');
+    }
+	
+	window.location = "intent://#Intent;scheme=com.openwager.hollywood;package=hollywoodslots;end";
+	/**
+	* Do the redirects
+	
 	function gotolink(appLink, store) {
 	
 		var loadedAt = Date.now();
@@ -233,12 +241,15 @@
 							}
 						}, 2000);
 					
+		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
+			
+		}
+
+					
 					window.location.replace(appLink);					
 	}
 	
-	/**
-	* Do the redirects
-	*/
+	
 
 	switch (OS) {
 
@@ -266,7 +277,7 @@
 			break;
 
 	}
-		
+	*/	
 		
 	</script>
 	
