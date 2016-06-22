@@ -227,8 +227,8 @@
 	function gotolink(appLink, store) {
 	
 		var loadedAt = Date.now();
-		window.setTimeout(	function(){
-							if (Date.now() - loadedAt < 5000){
+		tryToLoad = setTimeout(	function(){
+							if (Date.now() - loadedAt < 3500){
 								window.location = store;
 							}
 						}, 2000);
