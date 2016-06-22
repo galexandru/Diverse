@@ -280,7 +280,20 @@
 			appLink = appLink + promoCode;
 		}
 		
-		window.location.replace(appLink);	
+		
+		var iframe = document.createElement("iframe");
+        iframe.onload = function() {
+            clearTimeout(tryToLoad);
+            iframe.parentNode.removeChild(iframe);
+            window.location.href = appLink;
+        };
+
+        iframe.src = appLink;
+        iframe.setAttribute("style", "display:none;");
+        document.body.appendChild(iframe);
+		
+		
+		//window.location.replace(appLink);	
 	}	
 
 	switch (OS) {
