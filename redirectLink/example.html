@@ -242,13 +242,13 @@
 	
 		var loadedAt = Date.now();
 		tryToLoad = setTimeout(	function(){
-							if (Date.now() - loadedAt < 500){
+							if (Date.now() - loadedAt < 3500){
 								window.location.href = store;
 								//window.location = store;
 							}
 						}, 1000);
 					
-		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
+		/*if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
 			var iframe = document.createElement("iframe");
 			iframe.onload = function() {
 				clearTimeout(tryToLoad);
@@ -259,10 +259,9 @@
 			iframe.src = appLink;
 			iframe.setAttribute("style", "display:none;");
 			document.body.appendChild(iframe);
-		}
-
+		}*/
 					
-		//window.location.replace(appLink);					
+		window.location.replace(appLink);					
 	}
 	
 	
