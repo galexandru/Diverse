@@ -166,7 +166,8 @@
     </style>
 	
 	<script type="text/javascript">
-		
+	
+
 		
 	var QueryString = function () {
 	  // This function is anonymous, is executed immediately and 
@@ -191,6 +192,18 @@
 	  return query_string;
 	}();
 
+/**
+
+ * THE FOLLOWING 4 FUNCTIONS WERE TAKEN FROM THIS REPOSITORY
+
+ * browser-deeplink v0.1
+ *
+ * Author: Hampus Ohlsson, Nov 2014
+ * GitHub: http://github.com/hampusohlsson/browser-deeplink
+ *
+ * MIT License
+ */	
+	
 	 /**
 	 * Determine the mobile operating system.
 	 * This function either returns 'iOS', 'Android' or 'unknown'
@@ -228,6 +241,17 @@
         return navigator.userAgent.match('Android');
     }
 	
+    var isIOS = function() {
+
+        return navigator.userAgent.match('iPad') || 
+               navigator.userAgent.match('iPhone') || 
+               navigator.userAgent.match('iPod');
+    }
+	
+	var isMobile = function() {
+        return isAndroid() || isIOS(); 
+    }
+	
 	/**
 	* Do the redirects
 	*/	
@@ -252,7 +276,7 @@
 		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
 			appLink = appLink + promoCode + "#Intent;scheme=" + scheme + ";package=" + packageName + ";end";
 		}
-		else{
+		else if (isMobile()){
 			appLink = appLink + promoCode;
 		}
 		
@@ -274,13 +298,13 @@
 			break;
 
 		case 'Windows' || 'Blackberry':
-				var facebooklink = "https://apps.facebook.com/ow-hollywood/promocodes/";
+				var facebooklink = "https://apps.facebook.com/ow-hollywood";
 				window.setTimeout(function(){gotolink(facebooklink, facebooklink)}, 2000);	
 			break;
 
 		case 'other':
 				//Launch the website for 1App
-				var facebooklink = "https://apps.facebook.com/ow-hollywood/promocodes/";
+				var facebooklink = "https://apps.facebook.com/ow-hollywood";
 				window.setTimeout(function(){gotolink(facebooklink, facebooklink)}, 2000);				
 			break;
 
