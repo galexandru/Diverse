@@ -279,12 +279,7 @@
 		else if (isMobile()){
 			appLink = appLink + promoCode;
 		}
-				
-		if(isIOS()) {
-	        window.location.replace(appLink);
-			return;
-        }
-						
+								
 		var iframe = document.createElement("iframe");
 		iframe.onload = function() {
 			clearTimeout(tryToLoad);
@@ -295,6 +290,11 @@
 		iframe.src = appLink;
 		iframe.setAttribute("style", "display:none;");
 		document.body.appendChild(iframe);
+						
+		if(isIOS()) {
+	        window.location.replace(appLink);
+			return;
+        }
 		
 		//window.location.replace(appLink);	
 	}	
