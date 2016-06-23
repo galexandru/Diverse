@@ -268,10 +268,10 @@
 	
 		var loadedAt = Date.now();
 		tryToLoad = setTimeout(	function(){
-							if (Date.now() - loadedAt < 1500){
+							if (Date.now() - loadedAt < 2500){
 								window.location.href = store;
 							}
-						}, 1000);
+						}, 2000);
 					
 		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
 			appLink = appLink + promoCode + "#Intent;scheme=" + scheme + ";package=" + packageName + ";end";
