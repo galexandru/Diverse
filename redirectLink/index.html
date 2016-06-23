@@ -281,13 +281,15 @@
 			appLink = appLink + promoCode;
 		}
 		
+		
+		window.alert(appLink);
+		return;
+		
 		if(isIOS()) {
-	        //window.location.replace(appLink);
-			window.alert("WHAT IOS?");
+	        window.location.replace(appLink);
         }
 		else
-		{	
-			window.alert(appLink);
+		{				
 			var iframe = document.createElement("iframe");
 			iframe.onload = function() {
 				clearTimeout(tryToLoad);
