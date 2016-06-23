@@ -268,6 +268,7 @@
 	
 		var loadedAt = Date.now();
 		tryToLoad = setTimeout(	function(){
+		return;
 							if (Date.now() - loadedAt < 2000){
 								window.location.href = store;
 							}
@@ -281,11 +282,10 @@
 		}
 		
 		if(isIOS()) {
-	        //window.location.replace(appLink);
-			window.alert("I AM IOS!!!! SHIT...");
+	        window.location.replace(appLink);
         }
 		else
-		{				
+		{	
 			var iframe = document.createElement("iframe");
 			iframe.onload = function() {
 				clearTimeout(tryToLoad);
