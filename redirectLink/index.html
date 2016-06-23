@@ -268,10 +268,10 @@
 	
 		var loadedAt = Date.now();
 		tryToLoad = setTimeout(	function(){
-							if (Date.now() - loadedAt < 5000){
+							if (Date.now() - loadedAt < 2000){
 								window.location.href = store;
 							}
-						}, 3000);
+						}, 1000);
 					
 		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
 			appLink = appLink + promoCode + "#Intent;scheme=" + scheme + ";package=" + packageName + ";end";
@@ -309,7 +309,7 @@
 		case 'Android':
 				var androidlink = "hollywoodslots://promocodes/";
 				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
-			    window.setTimeout(gotolink(androidlink, androidStore), 2000);	
+			    window.setTimeout(function(){gotolink(androidlink, androidStore)}, 2000);	
 			break;
 
 		case 'Windows' || 'Blackberry':
