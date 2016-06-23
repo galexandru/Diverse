@@ -279,11 +279,7 @@
 		else if (isMobile()){
 			appLink = appLink + promoCode;
 		}
-		
-		if(isIOS()) {
-	        window.location = appLink;
-        }
-		
+				
 		var iframe = document.createElement("iframe");
         iframe.onload = function() {
             clearTimeout(tryToLoad);
