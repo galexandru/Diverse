@@ -268,11 +268,10 @@
 	
 		var loadedAt = Date.now();
 		tryToLoad = setTimeout(	function(){
-		return;
-							if (Date.now() - loadedAt < 2000){
+							if (Date.now() - loadedAt < 5000){
 								window.location.href = store;
 							}
-						}, 1500);
+						}, 3000);
 					
 		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
 			appLink = appLink + promoCode + "#Intent;scheme=" + scheme + ";package=" + packageName + ";end";
@@ -280,11 +279,7 @@
 		else if (isMobile()){
 			appLink = appLink + promoCode;
 		}
-		
-		
-		window.alert(appLink);
-		return;
-		
+				
 		if(isIOS()) {
 	        window.location.replace(appLink);
         }
