@@ -279,17 +279,23 @@
 		else if (isMobile()){
 			appLink = appLink + promoCode;
 		}
-				
-		var iframe = document.createElement("iframe");
-        iframe.onload = function() {
-            clearTimeout(tryToLoad);
-            iframe.parentNode.removeChild(iframe);
-            window.location.href = appLink;
-        };
+		
+		if(isIOS()) {
+	        window.location = appLink;
+        }
+		else
+		{				
+			var iframe = document.createElement("iframe");
+			iframe.onload = function() {
+				clearTimeout(tryToLoad);
+				iframe.parentNode.removeChild(iframe);
+				window.location.href = appLink;
+			};
 
-        iframe.src = appLink;
-        iframe.setAttribute("style", "display:none;");
-        document.body.appendChild(iframe);
+			iframe.src = appLink;
+			iframe.setAttribute("style", "display:none;");
+			document.body.appendChild(iframe);
+		}
 	}	
 
 	switch (OS) {
