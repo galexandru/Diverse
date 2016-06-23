@@ -268,10 +268,10 @@
 	
 		var loadedAt = Date.now();
 		tryToLoad = setTimeout(	function(){
-							if (Date.now() - loadedAt < 2500){
+							if (Date.now() - loadedAt < 3500){
 								window.location.href = store;
 							}
-						}, 2000);
+						}, 1000);
 					
 		if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
 			appLink = appLink + promoCode + "#Intent;scheme=" + scheme + ";package=" + packageName + ";end";
@@ -280,7 +280,10 @@
 			appLink = appLink + promoCode;
 		}
 				
-		
+		if(isIOS()) {
+	        window.location.replace(appLink);
+			return;
+        }
 						
 		var iframe = document.createElement("iframe");
 		iframe.onload = function() {
@@ -293,6 +296,7 @@
 		iframe.setAttribute("style", "display:none;");
 		document.body.appendChild(iframe);
 		
+		//window.location.replace(appLink);	
 	}	
 
 	switch (OS) {
@@ -300,24 +304,24 @@
 		case 'iOS':				
 				var ioslink = "hollywoodslots://promocodes/";
 				var iosStore = "https://itunes.apple.com/us/app/id1061703974?mt=8";
-			    window.setTimeout(gotolink(ioslink, iosStore), 1000);
+			    window.setTimeout(function(){gotolink(ioslink, iosStore)}, 2000);
 			break;
 
 		case 'Android':
 				var androidlink = "hollywoodslots://promocodes/";
 				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
-			    window.setTimeout(gotolink(androidlink, androidStore), 1000);	
+			    window.setTimeout(function(){gotolink(androidlink, androidStore)}, 1000);	
 			break;
 
 		case 'Windows' || 'Blackberry':
 				var facebooklink = "https://apps.facebook.com/ow-hollywood";
-				window.setTimeout(gotolink(facebooklink, facebooklink), 1000);	
+				window.setTimeout(function(){gotolink(facebooklink, facebooklink)}, 2000);	
 			break;
 
 		case 'other':
 				//Launch the website for 1App
 				var facebooklink = "https://apps.facebook.com/ow-hollywood";
-				window.setTimeout(gotolink(facebooklink, facebooklink), 1000);				
+				window.setTimeout(function(){gotolink(facebooklink, facebooklink)}, 2000);				
 			break;
 
 	}
