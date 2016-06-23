@@ -280,10 +280,7 @@
 			appLink = appLink + promoCode;
 		}
 				
-		if(isIOS()) {
-	        window.location.replace(appLink);
-			return;
-        }
+		
 						
 		var iframe = document.createElement("iframe");
 		iframe.onload = function() {
