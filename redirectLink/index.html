@@ -283,12 +283,15 @@
 		
 		appLink = appLink + promoCode;	*/	
 		
-		var lastChar = appLink.substr(appLink.length - 2, appLink.length - 1);
-		
-		if (lastChar == "/")
+		if (!isIOS())
 		{
-			appLink = appLink.substr(0, appLink.length - 2);
-		}	
+			var lastChar = appLink.substr(appLink.length - 2, appLink.length - 1);
+			
+			if (lastChar == "/")
+			{
+				appLink = appLink.substr(0, appLink.length - 2);
+			}
+		}		
 								
 									
 		var iframe = document.createElement("iframe");
