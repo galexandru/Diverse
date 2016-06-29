@@ -279,13 +279,16 @@
 			{
 				appLink = appLink.substr(0, appLink.indexOf('/'));
 			}			
-		}*/
+		}
 		
-		appLink = appLink + promoCode;			
-		if (appLink.charAt(appLink.length - 1) == '/')
+		appLink = appLink + promoCode;	*/	
+		
+		var lastChar = appLink.substr(appLink.length - 2, appLink.length - 1);
+		
+		if (lastChar == "/")
 		{
 			appLink = appLink.substr(0, appLink.length - 2);
-		}		
+		}	
 								
 									
 		var iframe = document.createElement("iframe");
@@ -309,13 +312,13 @@
 	switch (OS) {
 
 		case 'iOS':				
-				var ioslink = "hollywoodslots://promocodes/";
+				var ioslink = "hollywoodslots://promocodes/" + QueryString.code;
 				var iosStore = "https://itunes.apple.com/us/app/id1061703974?mt=8";
 			    window.setTimeout(function(){gotolink(ioslink, iosStore)}, 2000);
 			break;
 
 		case 'Android':
-				var androidlink = "hollywoodslots://promocodes/";
+				var androidlink = "hollywoodslots://promocodes/" QueryString.code;
 				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
 			    window.setTimeout(function(){gotolink(androidlink, androidStore)}, 1000);	
 			break;
