@@ -269,15 +269,23 @@
 								window.location.href = store;
 							}
 						}, 1000);
-					
-		if (isMobile()){
+		
+		
+		
+		/*if (isMobile()){
 			appLink = appLink + promoCode;
 			
 			if (appLink.indexOf('/') > -1)
 			{
 				appLink = appLink.substr(0, appLink.indexOf('/'));
-			}
+			}			
+		}*/
+		
+		appLink = appLink + promoCode;
 			
+		if (appLink.indexOf('/') > -1)
+		{
+			appLink = appLink.substr(0, appLink.indexOf('/'));
 		}
 								
 									
