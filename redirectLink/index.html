@@ -261,7 +261,7 @@
 	
 	var promoCode =  QueryString.code;	
 	if (promoCode){
-		promoCode = promoCode + "/";
+		promoCode = promoCode;
 	}
 	
 	function gotolink(appLink, store) {
@@ -273,10 +273,7 @@
 							}
 						}, 1000);
 					
-		/*if (isAndroid() && !navigator.userAgent.match(/Firefox/)) {
-			appLink = appLink + promoCode + "#Intent;scheme=" + scheme + ";package=" + packageName + ";end";
-		} 
-		else*/ if (isMobile()){
+		if (isMobile()){
 			appLink = appLink + promoCode;
 		}
 								
