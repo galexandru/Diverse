@@ -281,12 +281,11 @@
 			}			
 		}*/
 		
-		appLink = appLink + promoCode;
-			
-		if (appLink.indexOf('/') > -1)
+		appLink = appLink + promoCode;			
+		if (appLink.charAt(appLink.length - 1) == '/')
 		{
-			appLink = appLink.substr(0, appLink.indexOf('/'));
-		}
+			appLink = appLink.substr(0, appLink.length - 2);
+		}		
 								
 									
 		var iframe = document.createElement("iframe");
