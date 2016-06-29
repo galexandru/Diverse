@@ -260,9 +260,6 @@
 	var packageName = "com.openwager.hollywood";
 	
 	var promoCode =  QueryString.code;	
-	if (promoCode){
-		promoCode = promoCode;
-	}
 	
 	function gotolink(appLink, store) {
 	
@@ -275,6 +272,12 @@
 					
 		if (isMobile()){
 			appLink = appLink + promoCode;
+			
+			if (appLink.indexOf('/') > -1)
+			{
+				appLink = appLink.substr(0, appLink.indexOf('/'));
+			}
+			
 		}
 								
 		if(isIOS()) {
