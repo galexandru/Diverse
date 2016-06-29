@@ -280,23 +280,23 @@
 			
 		}
 								
+									
+		var iframe = document.createElement("iframe");
+		iframe.onload = function() {
+			clearTimeout(tryToLoad);
+			iframe.parentNode.removeChild(iframe);
+			window.location.href = appLink;
+		};
+
+		iframe.src = appLink;
+		iframe.setAttribute("style", "display:none;");
+		document.body.appendChild(iframe);
+			
+
 		if(isIOS()) {
 	        window.location.replace(appLink);
 			return;
-        }
-		else
-		{								
-			var iframe = document.createElement("iframe");
-			iframe.onload = function() {
-				clearTimeout(tryToLoad);
-				iframe.parentNode.removeChild(iframe);
-				window.location.href = appLink;
-			};
-
-			iframe.src = appLink;
-			iframe.setAttribute("style", "display:none;");
-			document.body.appendChild(iframe);
-		}						
+        }		
 	}	
 
 	switch (OS) {
