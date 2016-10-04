@@ -1,0 +1,360 @@
+
+<!doctype html>
+<html>
+<head>
+    
+	
+	<style>
+   	
+	body {
+		font-size: 100%;
+		background-color: #2d1a56 !important;
+		margin: 0px;
+	}
+	.png-wrapper {
+		max-width: 100%;
+		padding: 0px;
+		margin: 0 auto !important;
+	}
+	.png-wrapper .logo-container {
+		background: url("images/Line.png") repeat-x;
+		background-position: 0 bottom;
+		overflow: visible;
+		border-bottom: solid 2px #c9b153;
+		max-width: 100%;
+		padding: 10px 0px 10px 0px;
+		position: relative !important;
+		display: block !important;
+		text-align: center;
+	}
+	.png-wrapper .logo {
+		top: 17px !important;
+		padding: 0 0 0 0;
+		margin: 0 auto !important;
+		position: relative !important;
+		height: 151px;
+		display: block !important;
+		text-align: center;
+	}
+	.png-wrapper .logo img {
+		max-width: 100%;
+		height: auto;
+		padding: 0px 7px 0px 7px;
+	}
+	.png-wrapper .title-text {
+		padding: 30px 0 20px 0;
+		margin: 0 auto !important;
+		position: relative !important;
+		display: block !important;
+		text-align: center !important;
+	}
+	.png-wrapper .title-text img {
+		max-width: 100%;
+		height: auto;
+		padding: 0px 7px 0px 7px;
+	}
+	.png-redirect-container {
+		max-width: 600px;
+		padding: 0px;
+		margin: 0 auto !important;
+		top: 0px !important;
+		position: relative;
+	}
+	.png-redirect-container .body-text {
+		padding: 15px 0 0 0;
+		margin: 0 auto !important;
+		position: relative !important;
+		display: block !important;
+		text-align: center !important;
+	}
+	.png-redirect-container .body-text img {
+		max-width: 100%;
+		height: auto;
+	}
+	.png-redirect-container .social-container {
+		max-width: 270px;
+		margin: 0 auto !important;
+		padding: 0px 0px 0px 0px;
+		position: relative !important;
+		display: block !important;
+		text-align: center;
+		z-index: 101 !important;
+	}
+	.png-redirect-container .social-container .AppleIcon img {
+		max-width: 100%;
+		height: auto;
+		padding: 40px 0px 0px 0px;
+	}
+	.png-redirect-container .social-container .AndroidIcon img {
+		max-width: 100%;
+		height: auto;
+		padding: 40px 0px 0px 0px;
+	}
+	.png-redirect-container .social-container .AppleIcon {
+		padding: 0 0 0 0;
+		position: absolute !important;
+		width: 125px !important;
+		height: 125px !important;
+		display: block !important;
+		text-align: left !important;
+		left: 0px;
+		clear: both;
+	}
+	.png-redirect-container .social-container .AndroidIcon {
+		padding: 0 0 0 0;
+		position: absolute !important;
+		width: 124px !important;
+		height: 124px !important;
+		display: block !important;
+		text-align: right !important;
+		right: 0px;
+		clear: both;
+	}
+	.png-redirect-container .coins-container {
+		max-width: 100%;
+		margin: 0 auto !important;
+		padding: 20px 0px 10px 0px;
+		display: block !important;
+		bottom: 0px;
+		min-height: 320px;
+		/*top: 300px;*/
+		position: relative;
+	}
+	.png-redirect-container .coins-container .coins-left {
+		background: url("images/Coins-Left.png") no-repeat;
+		background-position: 0 0;
+		overflow: visible;
+		padding: 0 0 0 0;
+		position: absolute !important;
+		width: 209px !important;
+		height: 167px !important;
+		display: block !important;
+		text-align: left !important;
+		left: 0px;
+		bottom: 0px;
+		clear: both;
+	}
+	.png-redirect-container .coins-container .coins-right {
+		background: url("images/Coins-Right.png") no-repeat;
+		background-size : 100% 100%;
+		background-position: right bottom;
+		overflow: visible;
+		padding: 0 0 0 0;
+		position: absolute !important;
+		width: 192px !important;
+		height: 293px !important;
+		display: block !important;
+		text-align: right !important;
+		right: 0px;
+		bottom: 0px;
+		clear: both;
+	}
+
+	/* MOBILE */
+	@media only screen and (max-width: 425px) {
+	.png-wrapper-mb {
+		min-width: 425px !important;
+	}
+	.png-redirect-container .coins-container .coins-left-mb {
+		background-size : 87% 87% !important;
+		bottom: -15px;
+	}
+	.png-redirect-container .coins-container .coins-right-mb {
+		background-size : 87% 87%;
+	}
+	}
+
+    </style>
+	
+	<script type="text/javascript">
+	
+
+		
+	var QueryString = function () {
+	  // This function is anonymous, is executed immediately and 
+	  // the return value is assigned to QueryString!
+	  var query_string = {};
+	  var query = window.location.search.substring(1);
+	  var vars = query.split("&");
+	  for (var i=0;i<vars.length;i++) {
+		var pair = vars[i].split("=");
+			// If first entry with this name
+		if (typeof query_string[pair[0]] === "undefined") {
+		  query_string[pair[0]] = decodeURIComponent(pair[1]);
+			// If second entry with this name
+		} else if (typeof query_string[pair[0]] === "string") {
+		  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+		  query_string[pair[0]] = arr;
+			// If third or later entry with this name
+		} else {
+		  query_string[pair[0]].push(decodeURIComponent(pair[1]));
+		}
+	  } 
+	  return query_string;
+	}();
+
+/**
+
+ * THE FOLLOWING 4 FUNCTIONS WERE TAKEN FROM THIS REPOSITORY
+
+ * browser-deeplink v0.1
+ *
+ * Author: Hampus Ohlsson, Nov 2014
+ * GitHub: http://github.com/hampusohlsson/browser-deeplink
+ *
+ * MIT License
+ */	
+	
+	 /**
+	 * Determine the mobile operating system.
+	 * This function either returns 'iOS', 'Android' or 'unknown'
+	 *
+	 * @returns {String}
+	 */
+
+	function getMobileOperatingSystem() {
+		var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+		if( userAgent.match( /IE/i ) )
+		{
+		return 'Windows';
+		}
+		else if( userAgent.match( /iPad/i ) || userAgent.match( /iPhone/i ) || userAgent.match( /iPod/i ) )
+		{
+		return 'iOS';
+		}
+		else if( userAgent.match( /Android/i ) )
+		{
+		return 'Android';
+		}
+		else if( userAgent.match(/BlackBerry/i) )
+		{
+		return 'Blackberry';
+		}
+		else
+		{
+		return 'other';
+		}
+	}
+
+	var OS = getMobileOperatingSystem();
+	
+	var isAndroid = function() {
+        return navigator.userAgent.match('Android');
+    }
+	
+    var isIOS = function() {
+
+        return navigator.userAgent.match('iPad') || 
+               navigator.userAgent.match('iPhone') || 
+               navigator.userAgent.match('iPod');
+    }
+	
+	var isMobile = function() {
+        return isAndroid() || isIOS(); 
+    }
+	
+	/**
+	* Do the redirects
+	*/	
+	
+	var scheme = "hollywoodslots";
+	var packageName = "com.openwager.hollywood";
+	
+	var promoCode =  QueryString.code;	
+	
+	function gotolink(appLink, store) {
+	
+		var loadedAt = Date.now();
+		tryToLoad = setTimeout(	function(){
+							if (Date.now() - loadedAt < 3500){
+								window.location.href = store;
+							}
+						}, 1000);
+		
+				
+		var lastChar = appLink.substr(appLink.length - 2, appLink.length - 1);
+		
+		if (lastChar == "/")
+		{
+			appLink = appLink.substr(0, appLink.length - 2);
+		}	
+								
+									
+		var iframe = document.createElement("iframe");
+		iframe.onload = function() {
+			clearTimeout(tryToLoad);
+			iframe.parentNode.removeChild(iframe);
+			window.location.href = appLink;
+		};
+
+		iframe.src = appLink;
+		iframe.setAttribute("style", "display:none;");
+		document.body.appendChild(iframe);
+			
+
+		if(isIOS()) {
+	        window.location.replace(appLink);
+			return;
+        }		
+	}	
+
+	switch (OS) {
+
+		case 'iOS':				
+				var ioslink = "hollywoodslots://promocodes/" + QueryString.code;
+				var iosStore = "https://itunes.apple.com/us/app/id1061703974?mt=8";
+			    window.setTimeout(function(){gotolink(ioslink, iosStore)}, 2000);
+			break;
+
+		case 'Android':
+				var androidlink = "hollywoodslots://promocodes/" + QueryString.code;
+				var androidStore = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
+			    window.setTimeout(function(){gotolink(androidlink, androidStore)}, 1000);	
+			break;
+
+		case 'Windows' || 'Blackberry':
+				var facebooklink = "https://apps.facebook.com/ow-hollywood";
+				window.setTimeout(function(){gotolink(facebooklink, facebooklink)}, 2000);	
+			break;
+
+		case 'other':
+				//Launch the website for 1App
+				var facebooklink = "https://apps.facebook.com/ow-hollywood";
+				window.setTimeout(function(){gotolink(facebooklink, facebooklink)}, 2000);				
+			break;
+
+	}
+	
+		
+	</script>
+	
+    
+</head>
+<body>
+<div class="png-wrapper png-wrapper-mb">
+<!-- HEADER IMAGE -->
+<div class="logo-container">
+  <div class="logo col425"> <a href="http://www.hollywoodslots.com/"><img src="images/HollyWoodSlots_Logo.png" alt="HollyWood Slots" width="406" height="151" title="HollyWood Slots" /></a></div>
+</div>
+<!-- END HEADER IMAGE -->
+<div class="title-text col425"> <img src="images/Title-Text.png" alt="HollyWood Slots" width="655" height="67" title="HollyWood Slots" /></div>
+<div class="png-redirect-container col425">
+  <div class="body-text"> <img src="images/Body-Text.png" alt="HollyWood Slots" width="546" height="160" title="HollyWood Slots" /></div>
+  
+  <!-- SOCIAL ICONS -->
+  <div class="social-container">
+    <div class="AppleIcon"> <a href="https://itunes.apple.com/us/app/id1061703974?mt=8"><img src="images/AppleIcon.png" alt="HollyWood Slots on IPhone" width="125" height="125" title="HollyWood Slots on IPhone" /></a></div>
+    <div class="AndroidIcon"> <a href="https://play.google.com/store/apps/details?id=com.openwager.hollywood"><img src="images/AndroidIcon.png" alt="HollyWood Slots on Android" width="124" height="124" title="HollyWood Slots on Android" /></a></div>
+  </div>
+  <!-- END SOCIAL ICONS --> 
+  
+  <!-- COINS -->
+  <div class="coins-container">
+    <div class="coins-left coins-left-mb"></div>
+    <div class="coins-right coins-right-mb"></div>
+  </div>
+  <!-- END COINS --> 
+  
+</div>
+</body>
+</html>
