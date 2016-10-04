@@ -2,9 +2,34 @@
 	<head>
 		<script type="text/javascript">
 	
+			var QueryString = function () {
+				// This function is anonymous, is executed immediately and 
+				// the return value is assigned to QueryString!
+				var query_string = {};
+				var query = window.location.search.substring(1);
+				var vars = query.split("&");
+				for (var i=0;i<vars.length;i++) {
+					var pair = vars[i].split("=");
+						// If first entry with this name
+					if (typeof query_string[pair[0]] === "undefined") {
+					  query_string[pair[0]] = decodeURIComponent(pair[1]);
+						// If second entry with this name
+					} else if (typeof query_string[pair[0]] === "string") {
+					  var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+					  query_string[pair[0]] = arr;
+						// If third or later entry with this name
+					} else {
+					  query_string[pair[0]].push(decodeURIComponent(pair[1]));
+					}
+				} 
+				return query_string;
+			}();
 						
 			var iOSAppStoreFailLink = "https://itunes.apple.com/us/app/hollywood-slots-vegas-style/id1061703974?ls=1&mt=8";
 			var AndroidAppStoreFailLink = "https://play.google.com/store/apps/details?id=com.openwager.hollywood";
+			
+			var iOSUrlScheme = "hollywoodslots://promocodes/";
+			var AndroidUrlScheme = "hollywoodslots://promocodes/";
 			
 			//Check if device is iOS or Android
 			var iOS = (navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
@@ -13,7 +38,7 @@
 			if (iOS)
 			{				    				
 				//If the app is not installed the script will wait for 0.25 sec and redirect to web.
-				var loadedAt = new Date();
+				var loadedAt = +new Date();
 				loadStore = setTimeout(
 						    function(){
 							    if (new Date() - loadedAt < 1000){
@@ -22,22 +47,31 @@
 						    }
 						    ,250);
 				//Try launching the app using URL schemes					
-				//window.location = "hollywood://?param=3"; // this will print a warning message on IOS
+				window.location.replace(iOSUrlScheme + QueryString.code);
 			} 
 			else if (androidOS) {
 				//If the app is not installed the script will wait for 2sec and redirect to web.
 				var loadedAt = +new Date;
 				setTimeout(
 						   function(){
-							   if (+new Date - loadedAt < 3000){
+							   if (new Date - loadedAt < 1500){
 									window.location = AndroidAppStoreFailLink;
 							   }
 						   }
-						   ,2000);
+						   ,1000);
 				//Try launching the app using URL schemes
-				window.location.replace("hollywood://hollywood.com/app");
+				window.location.replace(AndroidUrlScheme + QueryString.code);
 			}
 			else {
+				var loadedAt = +new Date;
+				setTimeout(
+				   function(){
+					   if (new Date - loadedAt < 1500){
+							window.location = "https://apps.facebook.com/ow-hollywood";
+					   }
+				   }
+				   ,1000);
+			
 				//Launch the website for 1App
 				window.location ="https://apps.facebook.com/ow-hollywood";
 			}
