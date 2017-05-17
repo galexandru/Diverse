@@ -2,15 +2,13 @@
 
 use Ionic\CustomAuthentication;
 
-require 'vendor/autoload.php';
 
-Flight::route('/auth',function () {
-    try {
-        $redirect_uri = CustomAuthentication::process($_GET['token'], $_GET['state'], $_GET['redirect_uri']);
-        Flight::redirect($redirect_uri);
-    } catch (\Exception $e) {
-        Flight::json(['error' => $e->getMessage(), 'code' => $e->getCode()], 401);
-    }
-});
+$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+$txt = "John Doe\n";
+fwrite($myfile, $txt);
+$txt = "Jane Doe\n";
+fwrite($myfile, $txt);
+fclose($myfile);
 
-Flight::start();
+
+?>
