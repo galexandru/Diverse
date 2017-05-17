@@ -1,4 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-$re = "values";
-echo '[{"idx":"1", "id":"myid", "password":"pass", "name":"myName"}]';
+$credentials = [
+            'username' => 'dan',
+            'password' => '123',
+            'user_id' => "user-from-php"
+        ];
+echo json_encode($credentials);
